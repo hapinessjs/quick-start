@@ -74,18 +74,18 @@
         "rxjs": "^5.3.0"
     },
     "devDependencies": {
-        "@types/fs-extra": "^2.0.0",
+        "@types/fs-extra": "^3.0.0",
         "concurrently": "^3.4.0",
         "coveralls": "^2.13.1",
         "fs-extra": "^3.0.0",
         "istanbul": "^1.1.0-alpha.1",
         "mocha": "^3.2.0",
-        "mocha-typescript": "^1.1.0",
+        "mocha-typescript": "^1.1.2",
         "nodemon": "^1.11.0",
         "rimraf": "^2.6.1",
         "ts-node": "^3.0.2",
         "tslint": "^5.0.0",
-        "typescript": "^2.3.1",
+        "typescript": "^2.3.2",
         "unit.js": "^2.0.0"
     },
     "engines": {
