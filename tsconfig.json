@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "umd",
+        "moduleResolution": "node",
+        "declaration": false,
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "outDir": "./tmp",
+        "rootDir": ".",
+        "skipLibCheck": true,
+        "typeRoots": ["./node_modules/@types"],
+        "types": [
+            "node",
+            "boom",
+            "hapi",
+            "hoek",
+            "joi",
+            "fs-extra"
+        ],
+        "lib": [
+            "dom",
+            "es2015"
+        ]
+    },
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "exclude": [
+        "node_modules",
+        "dist",
+        "tmp",
+        "dev"
+    ]
+}

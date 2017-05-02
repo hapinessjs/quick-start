@@ -1,0 +1,14 @@
+[
+    { "name":"README.md" },
+    { "name":"LICENSE.md" },
+    { "name":"package.json" },
+    { "name":"src" },
+    { "name":"index.js", "remove":true },
+    { "name":"index.js.map", "remove":true },
+    { "name":"application.js", "remove":true },
+    { "name":"application.js.map", "remove":true },
+    { "name":"libraries", "remove":true },
+    { "name":"modules", "remove":true },
+    { "name":"routes", "remove":true },
+    { "name":"services", "remove":true }
+]
