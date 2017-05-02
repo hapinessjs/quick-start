@@ -14,7 +14,7 @@ import { Observable } from 'rxjs/Observable';
 import { Buffer } from 'buffer';
 
 // element to test
-import { GetDownloadImageRoute } from '../../src/modules/download/routes';
+import { GetDownloadImageRoute } from '../../src/modules/download/module/routes';
 
 @suite('- Unit GetDownloadImageRouteTest file')
 class GetDownloadImageRouteTest {

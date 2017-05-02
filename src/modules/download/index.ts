@@ -1,1 +1,1 @@
-export * from './download.module';
+export * from './module';
