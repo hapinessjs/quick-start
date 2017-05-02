@@ -1,1 +1,1 @@
-export * from './get.route';
+export * from './image';

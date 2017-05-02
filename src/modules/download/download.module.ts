@@ -1,6 +1,6 @@
 import { HapinessModule } from '@hapiness/core';
 import { HttpModule } from '@hapiness/http';
-import { GetDownloadRoute } from './routes';
+import { GetDownloadImageRoute } from './routes';
 
 @HapinessModule({
     version: '1.0.0',
@@ -8,7 +8,7 @@ import { GetDownloadRoute } from './routes';
         HttpModule
     ],
     declarations: [
-        GetDownloadRoute
+        GetDownloadImageRoute
     ]
 })
 export class DownloadModule {}

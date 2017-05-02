@@ -51,4 +51,15 @@ class ApplicationModuleTest {
                 .when(_ => Hapiness.kill().subscribe(__ => done())));
         });
     }
+
+    /**
+     * Test if downloadImage GET route returns `image/jpeg`
+     */
+    @test('- check if `downloadImage` GET route returns `image/jpeg`')
+    testGetDownloadImageRoute(done) {
+        Hapiness.bootstrap(ApplicationModule).then(() => {
+            Hapiness['mainModule'].server.inject('/download?url=https://portalstoragewuprod2.azureedge.net/vision/Analysis/1-1.jpg',
+                reply => unit.string(reply.headers['content-type']).is('image/jpeg').when(_ => Hapiness.kill().subscribe(__ => done())));
+        });
+    }
 }

@@ -6,7 +6,7 @@ import * as Boom from 'boom';
     path: '/download',
     method: 'GET'
 })
-export class GetDownloadRoute implements OnGet {
+export class GetDownloadImageRoute implements OnGet {
     /**
      * Class constructor
      * @param _http
