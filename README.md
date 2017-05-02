@@ -9,7 +9,7 @@
         <img src="https://coveralls.io/repos/github/hapinessjs/quick-start/badge.svg?branch=master" alt="coveralls" />
     </a>
     <a href="https://david-dm.org/hapinessjs/quick-start">
-        <img src="https://david-dm.org/hapinessjs/quick-start/status.svg"/>
+        <img src="https://david-dm.org/hapinessjs/quick-start/status.svg" alt="dependencies"/>
     </a>
     <a href="https://david-dm.org/hapinessjs/quick-start?type=dev">
         <img src="https://david-dm.org/hapinessjs/quick-start/dev-status.svg" alt="devDependencies" />
