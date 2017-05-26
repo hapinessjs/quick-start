@@ -1,4 +1,4 @@
-import { OnGet, Route, Reply, Request } from '@hapiness/core';
+import { OnGet, Route, ReplyNoContinue, Request } from '@hapiness/core';
 import { HttpService } from '@hapiness/http';
 import * as Boom from 'boom';
 
@@ -18,9 +18,9 @@ export class GetDownloadImageRoute implements OnGet {
      * @param request
      * @param reply
      */
-    onGet(request: Request, reply: Reply): void {
+    onGet(request: Request, reply: ReplyNoContinue): void {
         this._http
-            .getBuffer(request.query.url)
+            .getBuffer((<any>request.query).url)
             .subscribe(
                 data => reply(data.body).header('content-type', data.response.headers['content-type']),
                 error => reply(Boom.badData(error.message))

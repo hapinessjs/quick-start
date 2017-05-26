@@ -4,7 +4,7 @@ import { GetHelloWorldRoute } from './routes';
 import { DownloadModule } from './modules';
 
 @HapinessModule({
-    version: '1.0.0-beta.2',
+    version: '1.0.0-beta.6',
     options: {
         host: '0.0.0.0',
         port: 4443

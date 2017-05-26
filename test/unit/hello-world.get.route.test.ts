@@ -8,7 +8,7 @@ import { test, suite } from 'mocha-typescript';
  */
 import * as unit from 'unit.js';
 
-import { Reply } from '@hapiness/core';
+import { ReplyNoContinue } from '@hapiness/core';
 import { Observable } from 'rxjs/Observable';
 
 // element to test
@@ -72,7 +72,7 @@ class GetHelloWorldRouteTest {
             observer.complete();
         }));
 
-        this._getHelloWorldRoute.onGet(null, <Reply>(res => {
+        this._getHelloWorldRoute.onGet(null, <ReplyNoContinue>(res => {
             unit.string(res).is('Hello World').when(_ => {
                 this._helloWorldServiceMock.verify();
                 this._helloWorldServiceMock.restore();

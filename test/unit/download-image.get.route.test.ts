@@ -8,7 +8,7 @@ import { test, suite } from 'mocha-typescript';
  */
 import * as unit from 'unit.js';
 
-import { Request, Reply } from '@hapiness/core';
+import { Request, ReplyNoContinue } from '@hapiness/core';
 import { HttpService } from '@hapiness/http';
 import { Observable } from 'rxjs/Observable';
 import { Buffer } from 'buffer';
@@ -76,8 +76,12 @@ class GetDownloadImageRouteTest {
             observer.complete();
         }));
 
+        // mock request
+        let request: Request = unit.mock(Request);
+        request.query = { url: 'http://fake.uri' };
+
         this._getDownloadImageRoute
-            .onGet(<Request>{ query: { url: 'http://fake.uri' } }, <Reply>(res => {
+            .onGet(request, <ReplyNoContinue>(res => {
                 unit.object(res).isInstanceOf(Buffer).when(_ => {
                     this._httpServiceMock.verify();
                     this._httpServiceMock.restore();
@@ -95,8 +99,12 @@ class GetDownloadImageRouteTest {
             observer.error(new Error('option.uri is a required argument'));
         }));
 
+        // mock request
+        let request: Request = unit.mock(Request);
+        request.query = { url: null };
+
         this._getDownloadImageRoute
-            .onGet(<Request>{ query: { url: null } }, <Reply>(res => {
+            .onGet(request, <ReplyNoContinue>(res => {
                 unit.string(res.output.payload.message).is('option.uri is a required argument').when(_ => {
                     this._httpServiceMock.verify();
                     this._httpServiceMock.restore();
