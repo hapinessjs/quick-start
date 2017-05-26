@@ -1,4 +1,4 @@
-import { OnGet, Route, Reply, Request } from '@hapiness/core';
+import { OnGet, Route, ReplyNoContinue, Request } from '@hapiness/core';
 import { HelloWorldService } from '../../services';
 
 @Route({
@@ -17,7 +17,7 @@ export class GetHelloWorldRoute implements OnGet {
      * @param request
      * @param reply
      */
-    onGet(request: Request, reply: Reply): void {
+    onGet(request: Request, reply: ReplyNoContinue): void {
         this._helloWorldService.sayHello().subscribe(m => reply(m));
     }
 }
