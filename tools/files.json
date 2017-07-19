@@ -3,6 +3,7 @@
     { "name":"LICENSE.md" },
     { "name":"package.json" },
     { "name":"src" },
+    { "name":"config" },
     { "name":"index.js", "remove":true },
     { "name":"index.js.map", "remove":true },
     { "name":"application.module.js", "remove":true },

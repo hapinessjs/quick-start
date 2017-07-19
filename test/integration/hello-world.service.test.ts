@@ -8,7 +8,7 @@ import { test, suite } from 'mocha-typescript';
  */
 import * as unit from 'unit.js';
 
-import { Hapiness, HapinessModule, Lib } from '@hapiness/core';
+import { Hapiness, HapinessModule, HttpServerExt, Lib } from '@hapiness/core';
 import { Observable } from 'rxjs/Observable';
 
 // element to test
@@ -51,16 +51,12 @@ class HelloWorldServiceTest {
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService) {
                 unit.object(this._helloWorldService).isInstanceOf(HelloWorldService)
-                    .when(_ => Hapiness.kill().subscribe(__ => done()));
+                    .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done()));
             }
         }
 
         @HapinessModule({
             version: '1.0.0',
-            options: {
-                host: '0.0.0.0',
-                port: 4443
-            },
             declarations: [
                 HelloWorldLib
             ],
@@ -70,7 +66,10 @@ class HelloWorldServiceTest {
         })
         class ApplicationModuleMock {}
 
-        Hapiness.bootstrap(ApplicationModuleMock);
+        Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
+            host: '0.0.0.0',
+            port: 4443
+        })]);
     }
 
     /**
@@ -82,16 +81,12 @@ class HelloWorldServiceTest {
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService) {
                 unit.function(this._helloWorldService.sayHello)
-                    .when(_ => Hapiness.kill().subscribe(__ => done()));
+                    .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done()));
             }
         }
 
         @HapinessModule({
             version: '1.0.0',
-            options: {
-                host: '0.0.0.0',
-                port: 4443
-            },
             declarations: [
                 HelloWorldLib
             ],
@@ -101,7 +96,10 @@ class HelloWorldServiceTest {
         })
         class ApplicationModuleMock {}
 
-        Hapiness.bootstrap(ApplicationModuleMock);
+        Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
+            host: '0.0.0.0',
+            port: 4443
+        })]);
     }
 
     /**
@@ -113,16 +111,12 @@ class HelloWorldServiceTest {
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService) {
                 unit.object(this._helloWorldService.sayHello()).isInstanceOf(Observable)
-                    .when(_ => Hapiness.kill().subscribe(__ => done()));
+                    .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done()));
             }
         }
 
         @HapinessModule({
             version: '1.0.0',
-            options: {
-                host: '0.0.0.0',
-                port: 4443
-            },
             declarations: [
                 HelloWorldLib
             ],
@@ -132,7 +126,10 @@ class HelloWorldServiceTest {
         })
         class ApplicationModuleMock {}
 
-        Hapiness.bootstrap(ApplicationModuleMock);
+        Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
+            host: '0.0.0.0',
+            port: 4443
+        })]);
     }
 
     /**
@@ -144,16 +141,12 @@ class HelloWorldServiceTest {
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService) {
                 this._helloWorldService.sayHello().subscribe(m => unit.string(m).is('Hello World')
-                    .when(_ => Hapiness.kill().subscribe(__ => done())));
+                    .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done())));
             }
         }
 
         @HapinessModule({
             version: '1.0.0',
-            options: {
-                host: '0.0.0.0',
-                port: 4443
-            },
             declarations: [
                 HelloWorldLib
             ],
@@ -163,6 +156,9 @@ class HelloWorldServiceTest {
         })
         class ApplicationModuleMock {}
 
-        Hapiness.bootstrap(ApplicationModuleMock);
+        Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
+            host: '0.0.0.0',
+            port: 4443
+        })]);
     }
 }

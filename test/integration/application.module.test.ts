@@ -8,7 +8,7 @@ import { test, suite } from 'mocha-typescript';
  */
 import * as unit from 'unit.js';
 
-import { Hapiness } from '@hapiness/core';
+import { Hapiness, HttpServerExt } from '@hapiness/core';
 
 // element to test
 import { ApplicationModule } from '../../src/application.module';
@@ -46,20 +46,28 @@ class ApplicationModuleTest {
      */
     @test('- check if `helloWorld` GET route returns `Hello World`')
     testHelloWorldGetRoute(done) {
-        Hapiness.bootstrap(ApplicationModule).then(() => {
-            Hapiness['mainModule'].server.inject('/helloWorld', reply => unit.string(reply.result).is('Hello World')
-                .when(_ => Hapiness.kill().subscribe(__ => done())));
+        Hapiness.bootstrap(ApplicationModule, [HttpServerExt.setConfig({
+            host: '0.0.0.0',
+            port: 4443
+        })]).then(() => {
+            const server = Hapiness['extensions'].pop().value;
+            server.inject('/helloWorld', reply => unit.string(reply.result).is('Hello World')
+                .when(_ => server.stop().then(__ => done())));
         });
     }
 
     /**
      * Test if downloadImage GET route returns `image/jpeg`
      */
-    @test('- check if `downloadImage` GET route returns `image/jpeg`')
+    @test('- check if `downloadImage` GET route returns `image/png`')
     testGetDownloadImageRoute(done) {
-        Hapiness.bootstrap(ApplicationModule).then(() => {
-            Hapiness['mainModule'].server.inject('/download?url=https://portalstoragewuprod2.azureedge.net/vision/Analysis/1-1.jpg',
-                reply => unit.string(reply.headers['content-type']).is('image/jpeg').when(_ => Hapiness.kill().subscribe(__ => done())));
+        Hapiness.bootstrap(ApplicationModule, [HttpServerExt.setConfig({
+            host: '0.0.0.0',
+            port: 4443
+        })]).then(() => {
+            const server = Hapiness['extensions'].pop().value;
+            server.inject('/download?url=https://avatars4.githubusercontent.com/u/25975764?v=4&s=200',
+                reply => unit.string(reply.headers['content-type']).is('image/png').when(_ => server.stop().then(__ => done())));
         });
     }
 }
