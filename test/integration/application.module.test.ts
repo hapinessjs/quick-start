@@ -9,6 +9,10 @@ import { test, suite } from 'mocha-typescript';
 import * as unit from 'unit.js';
 
 import { Hapiness, HttpServerExt } from '@hapiness/core';
+import { Config } from '@hapiness/config';
+
+// load config before bootstrap and import application module
+Config.load();
 
 // element to test
 import { ApplicationModule } from '../../src/application.module';
