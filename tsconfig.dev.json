@@ -5,10 +5,7 @@
         "rootDir": "./src",
         "types": [
             "node",
-            "boom",
-            "hapi",
-            "hoek",
-            "joi"
+            "bunyan"
         ]
     },
     "exclude": [

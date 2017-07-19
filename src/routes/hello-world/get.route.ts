@@ -3,7 +3,12 @@ import { HelloWorldService } from '../../services';
 
 @Route({
     path: '/helloWorld',
-    method: 'GET'
+    method: 'GET',
+    config: {
+        description: 'Hello world',
+        notes: 'Say Hello World to you',
+        tags: ['api', 'hello']
+    }
 })
 export class GetHelloWorldRoute implements OnGet {
     /**

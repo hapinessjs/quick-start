@@ -42,7 +42,7 @@ Quick start project to create a [Hapiness](https://github.com/hapinessjs/hapines
 * [Files](#files)
     * [Typescript configuration files](#typescript-configuration-files)
     * [Typescript validation](#typescript-validation)
-    * [Yarn](#yarn)
+    * [NPM](#npm)
     * [Package definition](#package-definition)
     * [NVM](#nvm)
 * [Development](#development)
@@ -58,7 +58,7 @@ Quick start project to create a [Hapiness](https://github.com/hapinessjs/hapines
 
 ## Starter
 
-Download this [starter](https://github.com/hapinessjs/quick-start/releases/tag/v1.0.0-beta.6) and change `hapinessjs/quick-start` and `@hapiness/quick-start`, according **your module name and repository**, in these files:
+Download this [starter](https://github.com/hapinessjs/quick-start/releases/tag/v1.0.0-rc.6) and change `hapinessjs/quick-start` and `@hapiness/quick-start`, according **your module name and repository**, in these files:
 * `package.json`
 * `README.md`
 
@@ -92,17 +92,23 @@ In both case, add externals types from `@types/{...}` inside `compilerOptions.ty
 
 `tslint.json` contains all rules for `Typescript` validation during `pretest` process.
 
-### Yarn
+### NPM
 
-`yarn.lock` contains fixed packages' versions for all `node_modules` used in your module.
+`package-lock.json` contains fixed packages' versions for all `node_modules` used in your module.
  
- See [yarn cli documentation](https://yarnpkg.com/en/docs/cli/) to know how to use it.
+ Use it to install modules :
+ 
+ ```bash
+ $ npm install
+ ```
+ 
+ We use `bunyan` for logger format output and installation with `yarn` failed so we need to use latest `npm` version to install all packages.
  
 ### Package definition
 
 `package.json` contains your module definition with **name**, **description**, **scripts**, **dependencies**, etc.
 
-To install existing or new dependencies use `npm` or `yarn`. We advice to use `yarn` to have the same version that us.
+To install existing or new dependencies use `npm`.
 
 In `scripts` part, you have all needed scripts to work. All scripts reference elements in `Makefile`.
 
@@ -220,6 +226,10 @@ Packaging will be created inside `dist` folder. You must to **publish only the c
 
 ## Change History
 
+* v1.0.0-rc.6 (2017-07-19)
+    * Latest packages' versions.
+    * Integration of [http-server](https://github.com/hapinessjs/hapiness/tree/master/src/extensions/http-server) extension, [config](https://github.com/hapinessjs/config) library, [biim](https://github.com/hapinessjs/error) library, [logger](https://github.com/hapinessjs/logger-module) module, [swag](https://github.com/hapinessjs/swag-module) module and [http](https://github.com/hapinessjs/http-module) module.
+    * Project version related to core version.
 * v1.0.0-beta.6 (2017-05-26)
     * Latest packages' versions.
     * Fix new typings for HapiJS.
@@ -243,13 +253,13 @@ Packaging will be created inside `dist` folder. You must to **publish only the c
     <tr>
         <td align="center"><a href="https://github.com/Juneil"><img src="https://avatars3.githubusercontent.com/u/6546204?v=3&s=117" width="117"/></a></td>
         <td align="center"><a href="https://github.com/antoinegomez"><img src="https://avatars3.githubusercontent.com/u/997028?v=3&s=117" width="117"/></a></td>
-        <td align="center"><a href="https://github.com/srz09"><img src="https://avatars3.githubusercontent.com/u/6841511?v=3&s=117" width="117"/></a></td>
+        <td align="center"><a href="https://github.com/reptilbud"><img src="https://avatars3.githubusercontent.com/u/6841511?v=3&s=117" width="117"/></a></td>
         <td align="center"><a href="https://github.com/njl07"><img src="https://avatars3.githubusercontent.com/u/1673977?v=3&s=117" width="117"/></a></td>
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/Juneil">Julien Fauville</a></td>
         <td align="center"><a href="https://github.com/antoinegomez">Antoine Gomez</a></td>
-        <td align="center"><a href="https://github.com/srz09">Sébastien Ritz</a></td>
+        <td align="center"><a href="https://github.com/reptilbud">Sébastien Ritz</a></td>
         <td align="center"><a href="https://github.com/njl07">Nicolas Jessel</a></td>
     </tr>
 </table>

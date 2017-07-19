@@ -1,6 +1,6 @@
 import { OnGet, Route, ReplyNoContinue, Request } from '@hapiness/core';
 import { HttpService } from '@hapiness/http';
-import * as Boom from 'boom';
+import { Biim } from '@hapiness/biim';
 
 @Route({
     path: '/download',
@@ -22,8 +22,8 @@ export class GetDownloadImageRoute implements OnGet {
         this._http
             .getBuffer((<any>request.query).url)
             .subscribe(
-                data => reply(data.body).header('content-type', data.response.headers['content-type']),
-                error => reply(Boom.badData(error.message))
+                data => reply(data.body).header('content-type', <string>data.response.headers['content-type']),
+                error => reply(Biim.badData(error.message))
             );
     }
 }
