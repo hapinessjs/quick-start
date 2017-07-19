@@ -228,8 +228,8 @@ Packaging will be created inside `dist` folder. You must to **publish only the c
 
 * v1.0.0-rc.6 (2017-07-19)
     * Latest packages' versions.
-    * Integration of [http-server](https://github.com/hapinessjs/hapiness/tree/master/src/extensions/http-server) extension, [config](https://github.com/hapinessjs/config) library, [logger-module](https://github.com/hapinessjs/logger-module), [swag-module](https://github.com/hapinessjs/swag-module) and [http-module](https://github.com/hapinessjs/http-module)
-    * Module version related to core version.
+    * Integration of [http-server](https://github.com/hapinessjs/hapiness/tree/master/src/extensions/http-server) extension, [config](https://github.com/hapinessjs/config) library, [biim](https://github.com/hapinessjs/error) library, [logger](https://github.com/hapinessjs/logger-module) module, [swag](https://github.com/hapinessjs/swag-module) module and [http](https://github.com/hapinessjs/http-module) module.
+    * Project version related to core version.
 * v1.0.0-beta.6 (2017-05-26)
     * Latest packages' versions.
     * Fix new typings for HapiJS.
