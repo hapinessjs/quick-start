@@ -1,6 +1,6 @@
 {
     "name": "@hapiness/quick-start",
-    "version": "1.0.0-rc.6",
+    "version": "1.0.0-rc.7",
     "description": "Quick start project to create a Hapiness application with all its features",
     "main": "index.js",
     "private": false,
@@ -12,7 +12,7 @@
         "prebuild": "make pretest && make test && make clean",
         "build": "make tsc",
         "postbuild": "make packaging",
-        "dev:watch": "make clean-dev && concurrently -k \"make build-dev\" \"make run-dev\""
+        "dev:watch": "make clean-dev && concurrently -k --raw \"make build-dev\" \"make run-dev\""
     },
     "repository": {
         "type": "git",
@@ -71,29 +71,29 @@
     "dependencies": {
         "@hapiness/biim": "^1.1.0",
         "@hapiness/config": "^1.0.0-rc.6",
-        "@hapiness/core": "^1.0.0-rc.6",
+        "@hapiness/core": "^1.0.0-rc.7",
         "@hapiness/http": "^1.0.0-rc.6",
-        "@hapiness/logger": "^1.0.0-rc.6.1",
+        "@hapiness/logger": "^1.0.0-rc.6.2",
         "@hapiness/swag": "^1.0.0-rc.6",
-        "@types/bunyan": "^1.8.0",
-        "@types/node": "^8.0.13",
-        "bunyan": "^1.8.10",
-        "debug": "^2.6.8",
-        "rxjs": "^5.4.2"
+        "@types/bunyan": "^1.8.2",
+        "@types/node": "^8.0.26",
+        "bunyan": "^1.8.12",
+        "debug": "^3.0.1",
+        "rxjs": "^5.4.3"
     },
     "devDependencies": {
-        "@types/fs-extra": "^3.0.2",
+        "@types/fs-extra": "^4.0.0",
         "concurrently": "^3.4.0",
         "coveralls": "^2.13.1",
-        "fs-extra": "^4.0.0",
+        "fs-extra": "^4.0.1",
         "istanbul": "^1.1.0-alpha.1",
-        "mocha": "^3.4.2",
+        "mocha": "^3.5.0",
         "mocha-typescript": "^1.1.7",
         "nodemon": "^1.11.0",
         "rimraf": "^2.6.1",
-        "ts-node": "^3.2.0",
-        "tslint": "^5.5.0",
-        "typescript": "^2.4.1",
+        "ts-node": "^3.3.0",
+        "tslint": "^5.7.0",
+        "typescript": "^2.5.1",
         "unit.js": "^2.0.0"
     },
     "engines": {
