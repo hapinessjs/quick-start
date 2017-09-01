@@ -161,7 +161,6 @@ class HelloWorldServiceTest {
         @Lib()
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
-                console.log('--_-', this._httpServer.info);
                 this._helloWorldService.sayHello().subscribe(m => unit.string(m).is('Hello World'))
             }
         }
