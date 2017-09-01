@@ -50,8 +50,7 @@ class HelloWorldServiceTest {
         @Lib()
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
-                unit.object(this._helloWorldService).isInstanceOf(HelloWorldService)
-                    .when(_ => this._httpServer.stop().then(__ => done()).catch(err => done(err)));
+                unit.object(this._helloWorldService).isInstanceOf(HelloWorldService);
             }
         }
 
@@ -69,9 +68,15 @@ class HelloWorldServiceTest {
         Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
             host: '0.0.0.0',
             port: 4443
-        })]).catch(err => {
-            done(err);
-        });
+        })])
+        .then(_ =>
+            Hapiness['extensions'][0]
+                .value
+                .stop()
+                .then(__ => done())
+                .catch(__ => done(__))
+        )
+        .catch(err => done(err));
     }
 
     /**
@@ -82,8 +87,7 @@ class HelloWorldServiceTest {
         @Lib()
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
-                unit.function(this._helloWorldService.sayHello)
-                    .when(_ => this._httpServer.stop().then(__ => done()).catch(err => done(err)));
+                unit.function(this._helloWorldService.sayHello);
             }
         }
 
@@ -101,9 +105,15 @@ class HelloWorldServiceTest {
         Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
             host: '0.0.0.0',
             port: 4443
-        })]).catch(err => {
-            done(err);
-        });
+        })])
+        .then(_ =>
+            Hapiness['extensions'][0]
+                .value
+                .stop()
+                .then(__ => done())
+                .catch(__ => done(__))
+        )
+        .catch(err => done(err));
     }
 
     /**
@@ -114,8 +124,7 @@ class HelloWorldServiceTest {
         @Lib()
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
-                unit.object(this._helloWorldService.sayHello()).isInstanceOf(Observable)
-                    .when(_ => this._httpServer.stop().then(__ => done()).catch(err => done(err)));
+                unit.object(this._helloWorldService.sayHello()).isInstanceOf(Observable);
             }
         }
 
@@ -133,9 +142,15 @@ class HelloWorldServiceTest {
         Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
             host: '0.0.0.0',
             port: 4443
-        })]).catch(err => {
-            done(err);
-        });
+        })])
+        .then(_ =>
+            Hapiness['extensions'][0]
+                .value
+                .stop()
+                .then(__ => done())
+                .catch(__ => done(__))
+        )
+        .catch(err => done(err));
     }
 
     /**
@@ -146,8 +161,8 @@ class HelloWorldServiceTest {
         @Lib()
         class HelloWorldLib {
             constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
-                this._helloWorldService.sayHello().subscribe(m => unit.string(m).is('Hello World')
-                    .when(_ => this._httpServer.stop().then(__ => done()).catch(err => done(err))));
+                console.log('--_-', this._httpServer.info);
+                this._helloWorldService.sayHello().subscribe(m => unit.string(m).is('Hello World'))
             }
         }
 
@@ -165,8 +180,14 @@ class HelloWorldServiceTest {
         Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
             host: '0.0.0.0',
             port: 4443
-        })]).catch(err => {
-            done(err);
-        });
+        })])
+        .then(_ =>
+            Hapiness['extensions'][0]
+                .value
+                .stop()
+                .then(__ => done())
+                .catch(__ => done(__))
+        )
+        .catch(err => done(err));
     }
 }
