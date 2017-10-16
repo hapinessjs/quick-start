@@ -11,7 +11,7 @@ clean:
 packaging:
 	@node ./node_modules/.bin/ts-node ./tools/packaging.ts
 clean-dev:
-	@node ./node_modules/.bin/rimraf ./dev
+	@node ./node_modules/.bin/rimraf ./dev && ./node_modules/.bin/ts-node ./tools/init-dev.ts
 build-dev:
 	@node ./node_modules/.bin/nodemon -q -e ts -w src -x "./node_modules/.bin/tslint -p ./tsconfig.dev.json --type-check \"./src/**/*.ts\" && ./node_modules/.bin/tsc -p ./tsconfig.dev.json || true"
 run-dev:
