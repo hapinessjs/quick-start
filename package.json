@@ -1,6 +1,6 @@
 {
     "name": "@hapiness/quick-start",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Quick start project to create a Hapiness application with all its features",
     "main": "index.js",
     "private": false,
@@ -71,7 +71,7 @@
     "dependencies": {
         "@hapiness/biim": "^1.1.0",
         "@hapiness/config": "^1.0.0-rc.6.1",
-        "@hapiness/core": "^1.0.0",
+        "@hapiness/core": "^1.1.0",
         "@hapiness/http": "^1.0.0",
         "@hapiness/logger": "^1.0.0-rc.6.2",
         "@hapiness/swag": "^1.0.0-rc.7",

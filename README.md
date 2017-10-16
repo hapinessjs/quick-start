@@ -58,7 +58,7 @@ Quick start project to create a [Hapiness](https://github.com/hapinessjs/hapines
 
 ## Starter
 
-Download this [starter](https://github.com/hapinessjs/quick-start/releases/tag/v1.0.0-rc.6) and change `hapinessjs/quick-start` and `@hapiness/quick-start`, according **your module name and repository**, in these files:
+Download this [starter](https://github.com/hapinessjs/quick-start/releases/tag/v1.0.0) and change `hapinessjs/quick-start` and `@hapiness/quick-start`, according **your module name and repository**, in these files:
 * `package.json`
 * `README.md`
 
@@ -226,6 +226,10 @@ Packaging will be created inside `dist` folder. You must to **publish only the c
 
 ## Change History
 
+* v1.0.0 (2017-10-16)
+    * Latest packages' versions.
+    * Fix `dev:watch` start to not have an error.
+    * Project version related to core version.
 * v1.0.0-rc.6 (2017-07-19)
     * Latest packages' versions.
     * Integration of [http-server](https://github.com/hapinessjs/hapiness/tree/master/src/extensions/http-server) extension, [config](https://github.com/hapinessjs/config) library, [biim](https://github.com/hapinessjs/error) library, [logger](https://github.com/hapinessjs/logger-module) module, [swag](https://github.com/hapinessjs/swag-module) module and [http](https://github.com/hapinessjs/http-module) module.
@@ -248,7 +252,7 @@ Packaging will be created inside `dist` folder. You must to **publish only the c
 
 <table>
     <tr>
-        <td colspan="4" align="center"><a href="https://www.tadaweb.com"><img src="https://tadaweb.com/images/tadaweb/logo.png" width="117" alt="tadaweb" /></a></td>
+        <td colspan="4" align="center"><a href="https://www.tadaweb.com"><img src="http://bit.ly/2xHQkTi" width="117" alt="tadaweb" /></a></td>
     </tr>
     <tr>
         <td align="center"><a href="https://github.com/Juneil"><img src="https://avatars3.githubusercontent.com/u/6546204?v=3&s=117" width="117"/></a></td>
