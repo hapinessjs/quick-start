@@ -7,7 +7,7 @@ import { GetHelloWorldRoute } from './routes';
 import { DownloadModule } from './modules';
 
 @HapinessModule({
-    version: '1.0.0-rc.6',
+    version: '1.0.0',
     imports: [
         DownloadModule,
         SwagModule.setConfig(Config.get('swag'))
