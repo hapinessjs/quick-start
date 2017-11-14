@@ -8,8 +8,8 @@ import { test, suite } from 'mocha-typescript';
  */
 import * as unit from 'unit.js';
 
-import { ReplyNoContinue } from '@hapiness/core';
 import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
 
 // element to test
 import { HelloWorldService } from '../../src/services';
@@ -63,21 +63,24 @@ class GetHelloWorldRouteTest {
     }
 
     /**
+     * Test if `GetHelloWorldRoute` as a `onGet` function returns Observable
+     */
+    @test('- `GetHelloWorldRoute` must have `onGet` function returns Observable')
+    testGetHelloWorldRouteOnGetObservable() {
+        unit.object(this._getHelloWorldRoute.onGet(undefined)).isInstanceOf(Observable);
+    }
+
+    /**
      * Test if `GetHelloWorldRoute.onGet()` function call `reply` to send response
      */
     @test('- `GetHelloWorldRoute.onGet()` function must have a callback function returns `Hello World`')
     testGetHelloWorldRouteOnGetReply(done) {
-        this._helloWorldServiceMock.expects('sayHello').returns(Observable.create(observer => {
-            observer.next('Hello World');
-            observer.complete();
-        }));
+        this._helloWorldServiceMock.expects('sayHello').returns(of('Hello World'));
 
-        this._getHelloWorldRoute.onGet(null, <ReplyNoContinue>(res => {
-            unit.string(res).is('Hello World').when(_ => {
-                this._helloWorldServiceMock.verify();
-                this._helloWorldServiceMock.restore();
-                done();
-            })
+        this._getHelloWorldRoute.onGet(null).subscribe(res => unit.string(res).is('Hello World').when(_ => {
+            this._helloWorldServiceMock.verify();
+            this._helloWorldServiceMock.restore();
+            done();
         }));
     }
 }

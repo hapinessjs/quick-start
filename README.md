@@ -58,7 +58,7 @@ Quick start project to create a [Hapiness](https://github.com/hapinessjs/hapines
 
 ## Starter
 
-Download this [starter](https://github.com/hapinessjs/quick-start/releases/tag/v1.0.0) and change `hapinessjs/quick-start` and `@hapiness/quick-start`, according **your module name and repository**, in these files:
+Download this [starter](https://github.com/hapinessjs/quick-start/releases/tag/v1.1.0) and change `hapinessjs/quick-start` and `@hapiness/quick-start`, according **your module name and repository**, in these files:
 * `package.json`
 * `README.md`
 
@@ -94,12 +94,12 @@ In both case, add externals types from `@types/{...}` inside `compilerOptions.ty
 
 ### NPM
 
-`package-lock.json` contains fixed packages' versions for all `node_modules` used in your module.
+`yarn.lock` contains fixed packages' versions for all `node_modules` used in your module.
  
  Use it to install modules :
  
  ```bash
- $ npm install
+ $ yarn install
  ```
  
  We use `bunyan` for logger format output and installation with `yarn` failed so we need to use latest `npm` version to install all packages.
@@ -154,7 +154,7 @@ If you want to organize your application by **modules**, you need to follow the 
 
 ### Services
 
-All **services** files must be inside `src/services` folder and named `{my-service}.service.ts`. Class will be `{MyService}Service`.
+All **services** files must be inside `src/services/{my-service}` folder and named `{my-service}.service.ts`. Class will be `{MyService}Service`.
 
 **Service** needs to have `@Inject()` **decorator** and be added inside **module** `metadata`'s **providers** array.
 
@@ -164,11 +164,27 @@ You can organize **services** by **features** and create folders for that. Don't
 
 ### Routes
 
-All **routes** files must be inside `src/routes` folder and organize by **resources**. In each resource folder, you need to create `barrels` index and  **method** file named `{method}.route.ts`. Class will be `{MethodResource}Route`.
+All **routes** files must be inside `src/routes` folder and organize by **resources**. In each resource folder, you need to create `barrels` index and  **method** folder. In each method folder, you need to create `barrels` index and **type** file named `{type}.route.ts`. Class will be `{MethodTypeResource}Route`.
 
 **Route** needs to have `@Route({...})` **decorator** and be added inside **module** `metadata`'s **declarations** array.
 
 Export it with `barrels` index at the root of `src/routes`.
+
+Example of path for the route to get one user :
+
+```bash
+$ src/routes/user/get/one.route.ts
+```
+
+Implementation of the route will be :
+
+```javascript
+@Route({
+    path: '/user/{id}',
+    method: 'GET'
+})
+export class GetOneUserRoute implements OnGet {}
+```
 
 ### Libraries
 
@@ -226,25 +242,13 @@ Packaging will be created inside `dist` folder. You must to **publish only the c
 
 ## Change History
 
-* v1.0.0 (2017-10-16)
-    * Latest packages' versions.
-    * Fix `dev:watch` start to not have an error.
-    * Project version related to core version.
-* v1.0.0-rc.6 (2017-07-19)
-    * Latest packages' versions.
-    * Integration of [http-server](https://github.com/hapinessjs/hapiness/tree/master/src/extensions/http-server) extension, [config](https://github.com/hapinessjs/config) library, [biim](https://github.com/hapinessjs/error) library, [logger](https://github.com/hapinessjs/logger-module) module, [swag](https://github.com/hapinessjs/swag-module) module and [http](https://github.com/hapinessjs/http-module) module.
-    * Project version related to core version.
-* v1.0.0-beta.6 (2017-05-26)
-    * Latest packages' versions.
-    * Fix new typings for HapiJS.
-    * New packaging script.
-    * Module version related to core version.
-* v1.0.0-beta.2 (2017-05-02)
+* v1.1.0 (2017-11-14)
     * Create `quick-start` **application**.
     * Create **tests** for each component.
     * Application **guideline** style.
-    * Documentation.
-    * Module version related to core version.
+    * Lettable `Observable` form `RxJS`
+    * Integration of [http-server](https://github.com/hapinessjs/hapiness/tree/master/src/extensions/http-server) extension, [config](https://github.com/hapinessjs/config) library, [biim](https://github.com/hapinessjs/error) library, [logger](https://github.com/hapinessjs/logger-module) module, [swag](https://github.com/hapinessjs/swag-module) module and [http](https://github.com/hapinessjs/http-module) module.
+    * Documentation
     
 [Back to top](#table-of-contents)
 
