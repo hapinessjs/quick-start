@@ -8,7 +8,7 @@ import { test, suite } from 'mocha-typescript';
  */
 import * as unit from 'unit.js';
 
-import { Hapiness, HapinessModule, HttpServerExt, Lib } from '@hapiness/core';
+import { Hapiness, HapinessModule, HttpServerExt, Server, Lib, Inject } from '@hapiness/core';
 import { Observable } from 'rxjs/Observable';
 
 // element to test
@@ -49,9 +49,8 @@ class HelloWorldServiceTest {
     testInjectableHelloWorldService(done) {
         @Lib()
         class HelloWorldLib {
-            constructor(private _helloWorldService: HelloWorldService) {
-                unit.object(this._helloWorldService).isInstanceOf(HelloWorldService)
-                    .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done()));
+            constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
+                unit.object(this._helloWorldService).isInstanceOf(HelloWorldService);
             }
         }
 
@@ -69,7 +68,15 @@ class HelloWorldServiceTest {
         Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
             host: '0.0.0.0',
             port: 4443
-        })]);
+        })])
+        .then(_ =>
+            Hapiness['extensions'][0]
+                .value
+                .stop()
+                .then(__ => done())
+                .catch(__ => done(__))
+        )
+        .catch(err => done(err));
     }
 
     /**
@@ -79,9 +86,8 @@ class HelloWorldServiceTest {
     testInjectableHelloWorldServiceSayHello(done) {
         @Lib()
         class HelloWorldLib {
-            constructor(private _helloWorldService: HelloWorldService) {
-                unit.function(this._helloWorldService.sayHello)
-                    .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done()));
+            constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
+                unit.function(this._helloWorldService.sayHello);
             }
         }
 
@@ -99,7 +105,15 @@ class HelloWorldServiceTest {
         Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
             host: '0.0.0.0',
             port: 4443
-        })]);
+        })])
+        .then(_ =>
+            Hapiness['extensions'][0]
+                .value
+                .stop()
+                .then(__ => done())
+                .catch(__ => done(__))
+        )
+        .catch(err => done(err));
     }
 
     /**
@@ -109,9 +123,8 @@ class HelloWorldServiceTest {
     testInjectableHelloWorldServiceSayHelloObservable(done) {
         @Lib()
         class HelloWorldLib {
-            constructor(private _helloWorldService: HelloWorldService) {
-                unit.object(this._helloWorldService.sayHello()).isInstanceOf(Observable)
-                    .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done()));
+            constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
+                unit.object(this._helloWorldService.sayHello()).isInstanceOf(Observable);
             }
         }
 
@@ -129,7 +142,15 @@ class HelloWorldServiceTest {
         Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
             host: '0.0.0.0',
             port: 4443
-        })]);
+        })])
+        .then(_ =>
+            Hapiness['extensions'][0]
+                .value
+                .stop()
+                .then(__ => done())
+                .catch(__ => done(__))
+        )
+        .catch(err => done(err));
     }
 
     /**
@@ -139,9 +160,8 @@ class HelloWorldServiceTest {
     testInjectableHelloWorldServiceSayHelloObservableReturnString(done) {
         @Lib()
         class HelloWorldLib {
-            constructor(private _helloWorldService: HelloWorldService) {
-                this._helloWorldService.sayHello().subscribe(m => unit.string(m).is('Hello World')
-                    .when(_ => Hapiness['extensions'].pop().value.stop().then(__ => done())));
+            constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
+                this._helloWorldService.sayHello().subscribe(m => unit.string(m).is('Hello World'))
             }
         }
 
@@ -159,6 +179,14 @@ class HelloWorldServiceTest {
         Hapiness.bootstrap(ApplicationModuleMock, [HttpServerExt.setConfig({
             host: '0.0.0.0',
             port: 4443
-        })]);
+        })])
+        .then(_ =>
+            Hapiness['extensions'][0]
+                .value
+                .stop()
+                .then(__ => done())
+                .catch(__ => done(__))
+        )
+        .catch(err => done(err));
     }
 }

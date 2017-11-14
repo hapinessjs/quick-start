@@ -4,8 +4,7 @@
         "outDir": "./dev",
         "rootDir": "./src",
         "types": [
-            "node",
-            "bunyan"
+            "node"
         ]
     },
     "exclude": [

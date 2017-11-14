@@ -10,7 +10,8 @@ import * as unit from 'unit.js';
 
 import { Request, ReplyNoContinue } from '@hapiness/core';
 import { HttpService } from '@hapiness/http';
-import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { _throw } from 'rxjs/observable/throw';
 import { Buffer } from 'buffer';
 
 // element to test
@@ -71,9 +72,9 @@ class GetDownloadImageRouteTest {
      */
     @test('- `GetDownloadImageRoute.onGet()` function must have a callback function returns `Buffer`')
     testGetDownloadImageRouteOnGetReply(done) {
-        this._httpServiceMock.expects('getBuffer').returns(Observable.create(observer => {
-            observer.next({ body: Buffer.from('hello world', 'ascii'), response: {} });
-            observer.complete();
+        this._httpServiceMock.expects('getBuffer').returns(of({
+            body: Buffer.from('hello world', 'ascii'),
+            response: {}
         }));
 
         // mock request
@@ -95,9 +96,7 @@ class GetDownloadImageRouteTest {
      */
     @test('- `GetDownloadImageRoute.onGet()` function must have a callback function returns `Error` when uri is missing')
     testGetDownloadImageRouteOnGetReplyError(done) {
-        this._httpServiceMock.expects('getBuffer').returns(Observable.create(observer => {
-            observer.error(new Error('option.uri is a required argument'));
-        }));
+        this._httpServiceMock.expects('getBuffer').returns(_throw(new Error('option.uri is a required argument')));
 
         // mock request
         let request: Request = unit.mock(Request);
