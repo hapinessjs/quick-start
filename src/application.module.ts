@@ -18,7 +18,6 @@ import { DownloadModule } from './modules';
     ],
     providers: [
         HelloWorldService,
-        LoggerService,
         HttpServerService
     ]
 })
