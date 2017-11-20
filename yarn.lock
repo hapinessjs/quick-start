@@ -30,7 +30,7 @@
     debug "^3.1.0"
     js-yaml "^3.10.0"
 
-"@hapiness/core@^1.2.0":
+"@hapiness/core@^1.2.2":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@hapiness/core/-/core-1.2.2.tgz#3fbc377aacdafa43be871485e983707b75e72155"
   dependencies:
