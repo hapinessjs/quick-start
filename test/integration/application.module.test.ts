@@ -18,7 +18,7 @@ Config.load();
 import { ApplicationModule } from '../../src/application.module';
 
 @suite('- Integration ApplicationModuleTest file')
-class ApplicationModuleTest {
+export class ApplicationModuleTest {
     /**
      * Function executed before the suite
      */

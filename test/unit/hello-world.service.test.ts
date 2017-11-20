@@ -14,7 +14,7 @@ import { Observable } from 'rxjs/Observable';
 import { HelloWorldService } from '../../src/services';
 
 @suite('- Unit HelloWorldServiceTest file')
-class HelloWorldServiceTest {
+export class HelloWorldServiceTest {
     // private property to store service instance
     private _helloWorldService: HelloWorldService;
 

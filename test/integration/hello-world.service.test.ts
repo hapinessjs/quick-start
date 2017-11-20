@@ -8,14 +8,14 @@ import { test, suite } from 'mocha-typescript';
  */
 import * as unit from 'unit.js';
 
-import { Hapiness, HapinessModule, HttpServerExt, Server, Lib, Inject } from '@hapiness/core';
+import { Hapiness, HapinessModule, HttpServerExt, Lib } from '@hapiness/core';
 import { Observable } from 'rxjs/Observable';
 
 // element to test
 import { HelloWorldService } from '../../src/services';
 
 @suite('- Integration HelloWorldServiceTest file')
-class HelloWorldServiceTest {
+export class HelloWorldServiceTest {
     /**
      * Function executed before the suite
      */
@@ -49,7 +49,7 @@ class HelloWorldServiceTest {
     testInjectableHelloWorldService(done) {
         @Lib()
         class HelloWorldLib {
-            constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
+            constructor(private _helloWorldService: HelloWorldService) {
                 unit.object(this._helloWorldService).isInstanceOf(HelloWorldService);
             }
         }
@@ -86,7 +86,7 @@ class HelloWorldServiceTest {
     testInjectableHelloWorldServiceSayHello(done) {
         @Lib()
         class HelloWorldLib {
-            constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
+            constructor(private _helloWorldService: HelloWorldService) {
                 unit.function(this._helloWorldService.sayHello);
             }
         }
@@ -123,7 +123,7 @@ class HelloWorldServiceTest {
     testInjectableHelloWorldServiceSayHelloObservable(done) {
         @Lib()
         class HelloWorldLib {
-            constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
+            constructor(private _helloWorldService: HelloWorldService) {
                 unit.object(this._helloWorldService.sayHello()).isInstanceOf(Observable);
             }
         }
@@ -160,7 +160,7 @@ class HelloWorldServiceTest {
     testInjectableHelloWorldServiceSayHelloObservableReturnString(done) {
         @Lib()
         class HelloWorldLib {
-            constructor(private _helloWorldService: HelloWorldService, @Inject(HttpServerExt) private _httpServer: Server) {
+            constructor(private _helloWorldService: HelloWorldService) {
                 this._helloWorldService.sayHello().subscribe(m => unit.string(m).is('Hello World'))
             }
         }

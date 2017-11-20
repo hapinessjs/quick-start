@@ -18,7 +18,7 @@ import { Buffer } from 'buffer';
 import { GetDownloadImageRoute } from '../../src/modules/download/module/routes';
 
 @suite('- Unit GetDownloadImageRouteTest file')
-class GetDownloadImageRouteTest {
+export class GetDownloadImageRouteTest {
     // private property to store mock service instance
     private _httpServiceMock: any;
     // private property to store route instance
