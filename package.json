@@ -1,6 +1,6 @@
 {
     "name": "@hapiness/quick-start",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Quick start project to create a Hapiness application with all its features",
     "main": "index.js",
     "private": false,
@@ -69,13 +69,13 @@
     },
     "homepage": "https://github.com/hapinessjs/quick-start#readme",
     "dependencies": {
-        "@hapiness/biim": "^1.3.2",
-        "@hapiness/config": "^1.0.0",
-        "@hapiness/core": "^1.1.1",
-        "@hapiness/http": "^1.0.0",
-        "@hapiness/logger": "^1.0.0",
-        "@hapiness/swag": "^1.0.0",
-        "@types/node": "^8.0.51",
+        "@hapiness/biim": "^1.4.0",
+        "@hapiness/config": "^1.1.0",
+        "@hapiness/core": "^1.2.2",
+        "@hapiness/http": "^1.1.0",
+        "@hapiness/logger": "^1.1.0",
+        "@hapiness/swag": "^1.1.0",
+        "@types/node": "^8.0.53",
         "debug": "^3.1.0",
         "rxjs": "^5.5.2"
     },
@@ -91,7 +91,7 @@
         "rimraf": "^2.6.2",
         "ts-node": "^3.3.0",
         "tslint": "^5.8.0",
-        "typescript": "^2.5.3",
+        "typescript": "^2.6.1",
         "unit.js": "^2.0.0"
     },
     "engines": {
