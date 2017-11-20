@@ -16,7 +16,7 @@ import { HelloWorldService } from '../../src/services';
 import { GetHelloWorldRoute } from '../../src/routes';
 
 @suite('- Unit GetHelloWorldRouteTest file')
-class GetHelloWorldRouteTest {
+export class GetHelloWorldRouteTest {
     // private property to store mock service instance
     private _helloWorldServiceMock: any;
     // private property to store route instance
