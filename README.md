@@ -58,7 +58,7 @@ Quick start project to create a [Hapiness](https://github.com/hapinessjs/hapines
 
 ## Starter
 
-Download this [starter](https://github.com/hapinessjs/quick-start/releases/tag/v1.1.0) and change `hapinessjs/quick-start` and `@hapiness/quick-start`, according **your module name and repository**, in these files:
+Download this [starter](https://github.com/hapinessjs/quick-start/releases/tag/v1.2.0) and change `hapinessjs/quick-start` and `@hapiness/quick-start`, according **your module name and repository**, in these files:
 * `package.json`
 * `README.md`
 
@@ -242,6 +242,10 @@ Packaging will be created inside `dist` folder. You must to **publish only the c
 
 ## Change History
 
+* v1.1.0 (2017-11-20)
+    * Latest packages' versions.
+    * Documentation.
+    * Change packaging process.
 * v1.1.0 (2017-11-14)
     * Create `quick-start` **application**.
     * Create **tests** for each component.
