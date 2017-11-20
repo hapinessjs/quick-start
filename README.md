@@ -58,7 +58,7 @@ Quick start project to create a [Hapiness](https://github.com/hapinessjs/hapines
 
 ## Starter
 
-Download this [starter](https://github.com/hapinessjs/quick-start/releases/tag/v1.2.0) and change `hapinessjs/quick-start` and `@hapiness/quick-start`, according **your module name and repository**, in these files:
+Download this [starter](https://github.com/hapinessjs/quick-start/releases/tag/v1.1.0) and change `hapinessjs/quick-start` and `@hapiness/quick-start`, according **your module name and repository**, in these files:
 * `package.json`
 * `README.md`
 
