@@ -72,7 +72,7 @@
         "@hapiness/biim": "^1.4.0",
         "@hapiness/config": "^1.1.0",
         "@hapiness/core": "^1.2.2",
-        "@hapiness/http": "^1.1.0",
+        "@hapiness/http": "^1.1.1",
         "@hapiness/logger": "^1.1.0",
         "@hapiness/swag": "^1.1.0",
         "@types/node": "^8.0.53",

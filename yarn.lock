@@ -45,9 +45,9 @@
     reflect-metadata "^0.1.10"
     websocket "^1.0.25"
 
-"@hapiness/http@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@hapiness/http/-/http-1.1.0.tgz#2e33d8332227dca47a4b5b05a16a6fd17e8baa19"
+"@hapiness/http@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@hapiness/http/-/http-1.1.1.tgz#f74b67a663e47eb03fda16537a8ea3104493255c"
   dependencies:
     "@akanass/rx-http-request" "^2.7.0"
     "@types/node" "^8.0.53"
