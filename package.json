@@ -1,6 +1,6 @@
 {
     "name": "@hapiness/quick-start",
-    "version": "1.2.0",
+    "version": "1.1.0",
     "description": "Quick start project to create a Hapiness application with all its features",
     "main": "index.js",
     "private": false,
