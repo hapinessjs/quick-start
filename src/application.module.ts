@@ -7,7 +7,7 @@ import { GetHelloWorldRoute } from './routes';
 import { DownloadModule } from './modules';
 
 @HapinessModule({
-    version: '1.2.0',
+    version: '1.1.0',
     imports: [
         LoggerModule,
         DownloadModule,
